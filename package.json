@@ -1,0 +1,28 @@
+{
+  "name": "fullstackopen-backend",
+  "version": "1.0.0",
+  "description": "Backend exercises for Full Stack Open course",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/louis17782/fullstackopen-backend.git"
+  },
+  "author": "Luis santeliz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/louis17782/fullstackopen-backend/issues"
+  },
+  "homepage": "https://github.com/louis17782/fullstackopen-backend#readme",
+  "dependencies": {
+    "express": "^4.21.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
