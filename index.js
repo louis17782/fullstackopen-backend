@@ -1,5 +1,10 @@
-const express = require('express')
-const morgan = require('morgan')
+import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url'
+import morgan from 'morgan';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const app = express()
 
 let persons = [
@@ -26,18 +31,19 @@ let persons = [
 
 ]
 
+app.use(express.static('dist'));
 app.use(express.json());
 app.use(morgan('tiny'));
 
-app.get('/', (request, response)=> {
+app.get('/', (_request, response)=> {
     response.send('<h1>Hello world</h1>')
 })
 
-app.get('/api/persons', (request, response) => {
+app.get('/api/persons', (_request, response) => {
     response.json(persons)
 })
 
-app.get('/info', (request, response) => {
+app.get('/info', (_request, response) => {
     const totalPersons = persons.length;
     const requestTime = new Date();
 
@@ -92,6 +98,10 @@ app.delete('/api/persons/:id', (request, response) => {
     response.json(person)
 
   })
+
+  app.get('*', (_request, response) => {
+    response.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
+  });
 
 const PORT = 3001
 app.listen(PORT)
