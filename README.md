@@ -8,4 +8,4 @@ This is the backend for the Fullstack Open course's Phone Book.
 ## Render Deployment
 
 The application is live at the following link:
-[Application Link](https://tulinkrender.com)
+[Application Link](https://fullstackopen-backend-cvdn.onrender.com/)
