@@ -44,7 +44,7 @@ app.get('/', (_request, response)=> {
     response.send('<h1>Hello world this is Louis</h1>')
 })
 
-app.get('/api/persons', (_request, response) => {
+app.get('/services/persons', (_request, response) => {
     Person.find({}).then(persons => {
       response.json(persons);
     });
@@ -60,7 +60,7 @@ app.get('/info', (_request, response) => {
     )
 })
 
-app.get('/api/persons/:id', (request, response) => {
+app.get('/services/persons/:id', (request, response) => {
     const id = request.params.id
     const person = persons.find(person => person.id === id)
 
@@ -72,7 +72,7 @@ app.get('/api/persons/:id', (request, response) => {
     }
 })
 
-app.delete('/api/persons/:id', (request, response) => {
+app.delete('/services/persons/:id', (request, response) => {
     Person.findByIdAndRemove(request.params.id)
       .then(result => {
         if (result) {
@@ -88,7 +88,7 @@ app.delete('/api/persons/:id', (request, response) => {
   });
   
 
-  app.post('/api/persons', (request, response) => {
+  app.post('/services/persons', (request, response) => {
     const body = request.body
 
     if (!body.name || !body.number) {
